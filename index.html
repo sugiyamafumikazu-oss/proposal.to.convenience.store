@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ネクシオグループ | コンビニエンスストア業界向け人材・DXソリューション</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        /* 送信完了モーダルのスタイル */
+        #successModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            width: 24px;
+            height: 24px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="text-2xl font-bold text-blue-900 tracking-wider">NEXIO<span class="text-blue-500">GROUP</span></div>
+                    <span class="text-xs text-gray-500 border-l border-gray-300 pl-2 ml-2 hidden sm:block">人事・労務のワンストップソリューション</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#problem" class="text-gray-600 hover:text-blue-900 font-medium">業界の課題</a>
+                    <a href="#solution" class="text-gray-600 hover:text-blue-900 font-medium">解決策</a>
+                    <a href="#group" class="text-gray-600 hover:text-blue-900 font-medium">グループの強み</a>
+                    <a href="#contact" class="bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800 transition shadow-lg">お問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center relative">
+        <div class="text-center text-white px-4 max-w-5xl mx-auto">
+            <h2 class="text-lg md:text-xl font-bold mb-4 tracking-widest uppercase text-blue-300">2026年 コンビニエンスストア業界の生存戦略</h2>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                <span class="block mb-2">限界を迎える労働力不足に</span>
+                <span class="bg-blue-600 px-4 py-1 inline-block transform -skew-x-12">「外国人材 × AI × 士業」</span>の<br>
+                最適化を。
+            </h1>
+            <p class="text-lg md:text-xl mb-10 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                単なる派遣ではありません。ビザ申請の法務戦略、助成金によるDX投資、
+                そしてAIを活用した教育システムまで。<br>
+                ネクシオグループが、コンビニ経営の次世代インフラを構築します。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#solution" class="bg-white text-blue-900 font-bold py-4 px-8 rounded-full shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1">
+                    ソリューションを見る
+                </a>
+                <a href="#contact" class="border-2 border-white text-white font-bold py-4 px-8 rounded-full hover:bg-white hover:text-blue-900 transition transform hover:-translate-y-1">
+                    資料請求・相談
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 animate-bounce text-white">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-wider">THE CHALLENGE</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">2026年、コンビニ経営は<br class="md:hidden">「限界点」を超えた</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    少子高齢化による物理的な労働力の枯渇。24時間営業モデルの維持が困難になる中、
+                    従来の「安価な労働力」に頼る経営はもはや不可能です。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-red-100 rounded-bl-full -mr-10 -mt-10 transition group-hover:bg-red-200"></div>
+                    <div class="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center text-white mb-6 relative z-10 shadow-lg">
+                        <i class="fas fa-user-slash text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">採用難と定着率の低下</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        深夜・早朝シフトの穴埋めが困難に。従来の求人媒体では応募が来ず、
+                        留学生アルバイトも争奪戦となっています。
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-yellow-100 rounded-bl-full -mr-10 -mt-10 transition group-hover:bg-yellow-200"></div>
+                    <div class="w-14 h-14 bg-yellow-500 rounded-xl flex items-center justify-center text-white mb-6 relative z-10 shadow-lg">
+                        <i class="fas fa-passport text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">ビザの壁・法的リスク</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        「レジ打ち」等の単純労働では就労ビザが下りない現実。
+                        不法就労助長のリスクを恐れ、優秀な外国人材の活用に踏み切れないオーナー様が多数。
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-100 rounded-bl-full -mr-10 -mt-10 transition group-hover:bg-blue-200"></div>
+                    <div class="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center text-white mb-6 relative z-10 shadow-lg">
+                        <i class="fas fa-coins text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">DX投資の資金不足</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        無人レジや省人化システムを導入したいが、
+                        初期投資（CAPEX）の負担が重く、利益率の低下により投資余力がない。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Concept -->
+    <div class="bg-blue-900 py-16 text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 L100 0 L100 100 Z" fill="white" />
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl font-bold mb-6">ネクシオグループの「トータル・エコシステム」</h2>
+            <p class="text-xl max-w-4xl mx-auto leading-relaxed opacity-90">
+                人材派遣会社、社会保険労務士法人、行政書士事務所、監理団体。<br>
+                4つの専門機関が連携し、<span class="text-yellow-400 font-bold">「法務」「資金」「教育」</span>の全方位から<br>
+                コンビニ経営をサポートします。
+            </p>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold tracking-wider">OUR SOLUTIONS</span>
+                <h2 class="text-4xl font-black mt-2 text-gray-900">3つの突破口</h2>
+            </div>
+
+            <!-- Solution 1: VISA & Legal -->
+            <div class="flex flex-col lg:flex-row items-center bg-white rounded-3xl shadow-xl overflow-hidden mb-16 transform hover:scale-[1.01] transition duration-300">
+                <div class="lg:w-1/2 h-80 lg:h-auto relative">
+                    <img src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Visa Application" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-blue-900 bg-opacity-40 flex items-center justify-center">
+                        <span class="bg-white text-blue-900 px-6 py-2 rounded-full font-bold text-lg shadow-lg">行政書士キャリア法務事務所</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-10 lg:p-16">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-5xl font-black text-gray-200">01</span>
+                        <h3 class="text-2xl font-bold text-blue-900">高度人材ビザ戦略による<br>複数店舗マネジメント</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        通常のレジ打ちは「留学ビザ（週28時間）」に限定されますが、複数店舗を経営するオーナー様向けに、<strong>「技術・人文知識・国際業務」等の就労ビザ取得</strong>をサポートします。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">店舗マネージャー候補として正規雇用が可能</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">複雑な入管書類作成・申請を完全代行</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">コンプライアンスを遵守した安定的なシフト構築</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Solution 2: Subsidy & DX -->
+            <div class="flex flex-col lg:flex-row-reverse items-center bg-white rounded-3xl shadow-xl overflow-hidden mb-16 transform hover:scale-[1.01] transition duration-300">
+                <div class="lg:w-1/2 h-80 lg:h-auto relative">
+                    <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="DX Payment" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-blue-900 bg-opacity-40 flex items-center justify-center">
+                        <span class="bg-white text-blue-900 px-6 py-2 rounded-full font-bold text-lg shadow-lg">社労士法人キャリアデザイン</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-10 lg:p-16">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-5xl font-black text-gray-200">02</span>
+                        <h3 class="text-2xl font-bold text-blue-900">助成金を活用した<br>「店舗DX」とコスト削減</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        無人化・省人化への移行に必要な資金を、<strong>「業務改善助成金」</strong>等の活用でサポート。最新鋭の自動釣銭機やセルフレジ導入のハードルを劇的に下げます。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">最新レジ導入費用の助成金申請をフルサポート</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">賃金規定の改定など、受給要件の整備も実施</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700 font-medium">DXによる業務効率化で、少ない人数での運営を実現</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Solution 3: AI Education -->
+            <div class="flex flex-col lg:flex-row items-center bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-[1.01] transition duration-300">
+                <div class="lg:w-1/2 h-80 lg:h-auto relative">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI Education" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-indigo-900 bg-opacity-50 flex items-center justify-center">
+                        <span class="bg-white text-indigo-900 px-6 py-2 rounded-full font-bold text-lg shadow-lg">Next Gen Tech Support</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-10 lg:p-16">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-5xl font-black text-gray-200">03</span>
+                        <h3 class="text-2xl font-bold text-blue-900">「外国人材 × AI」<br>日本語教育・労務管理DX</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        外国人スタッフの最大の壁である「言葉」と「文化」。AIチャットボットを活用し、接客日本語の教育から、生活上の悩み相談までを自動化・可視化します。
+                    </p>
+                    <div class="bg-gray-100 p-5 rounded-xl border-l-4 border-indigo-500 mb-4">
+                        <h4 class="font-bold text-indigo-900 mb-2"><i class="fas fa-robot mr-2"></i>AIチャットボットの機能</h4>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>・業務マニュアルの多言語即時回答</li>
+                            <li>・日本語習熟度のデータを可視化し、配置を最適化</li>
+                            <li>・24時間対応の生活相談で離職率を低下</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Group Structure Section -->
+    <section id="group" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">ネクシオグループの総合力</h2>
+                <p class="mt-4 text-gray-600">一つの窓口で、採用・法務・労務のすべてを解決します。</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="p-6 border rounded-xl text-center hover:shadow-lg transition">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-building"></i></div>
+                    <h4 class="font-bold text-gray-900 mb-2">株式会社ネクシオ</h4>
+                    <p class="text-sm text-gray-500">人材派遣・紹介<br>人事労務コンサル</p>
+                </div>
+                <div class="p-6 border rounded-xl text-center hover:shadow-lg transition">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-file-contract"></i></div>
+                    <h4 class="font-bold text-gray-900 mb-2">社労士法人<br>キャリアデザイン</h4>
+                    <p class="text-sm text-gray-500">助成金申請・労務管理<br>社会保険手続き</p>
+                </div>
+                <div class="p-6 border rounded-xl text-center hover:shadow-lg transition">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-globe-asia"></i></div>
+                    <h4 class="font-bold text-gray-900 mb-2">フジリンクス<br>協同組合</h4>
+                    <p class="text-sm text-gray-500">外国人技能実習生<br>受入支援</p>
+                </div>
+                <div class="p-6 border rounded-xl text-center hover:shadow-lg transition">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-balance-scale"></i></div>
+                    <h4 class="font-bold text-gray-900 mb-2">行政書士<br>キャリア法務事務所</h4>
+                    <p class="text-sm text-gray-500">在留資格(ビザ)申請<br>各種許認可</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="bg-blue-900 py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">店舗運営の未来を、共に創りませんか？</h2>
+            <p class="text-blue-100 mb-10 text-lg">
+                人材の確保から、助成金を活用したDX化、そしてAIによる教育まで。<br>
+                まずはお気軽にご相談ください。
+            </p>
+            <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-left relative">
+                <!-- 送信完了モーダル -->
+                <div id="successModal">
+                    <div class="bg-white p-8 rounded-2xl text-center max-w-sm mx-4">
+                        <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">送信完了しました</h3>
+                        <p class="text-gray-600 mb-6">お問い合わせありがとうございます。<br>担当者よりご連絡させていただきます。</p>
+                        <button onclick="document.getElementById('successModal').style.display='none'" class="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition">
+                            閉じる
+                        </button>
+                    </div>
+                </div>
+
+                <!-- フォーム本体 (FormSubmit利用) -->
+                <!-- action: 管理者アドレス（ここ宛に届きます） -->
+                <form id="contactForm" action="https://formsubmit.co/sugiyama.fumikazu@gmail.com" method="POST" class="space-y-6">
+                    
+                    <!-- 設定項目 -->
+                    <!-- CC: 別の管理者にも送る -->
+                    <input type="hidden" name="_cc" value="nexioofficial@gmail.com">
+                    <!-- Subject: 件名設定 -->
+                    <input type="hidden" name="_subject" value="【HPよりお問い合わせ】新規のご相談">
+                    <!-- Autoresponse: 自動返信メールを有効化（FormSubmitの機能） -->
+                    <input type="hidden" name="_autoresponse" value="your retrieval code or custom text if paid, but default works for free">
+                    <!-- Next: 送信後の挙動（AJAXで制御するため無効化に近い設定） -->
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">貴社名・店舗名</label>
+                            <input type="text" name="貴社名・店舗名" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="例）株式会社〇〇 / セブンイレブン〇〇店" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ご担当者様名</label>
+                            <input type="text" name="お名前" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="例）山田 太郎" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">メールアドレス</label>
+                        <!-- type="email" name="email" とすることで、ここ宛に自動返信が届きます -->
+                        <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" placeholder="info@example.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">ご相談内容（複数選択可）</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="checkbox" name="ご相談内容[]" value="外国人材採用" class="form-checkbox h-5 w-5 text-blue-600">
+                                <span class="text-gray-700">外国人材（店長候補・マネジメント層）の採用について</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="checkbox" name="ご相談内容[]" value="助成金・DX" class="form-checkbox h-5 w-5 text-blue-600">
+                                <span class="text-gray-700">業務改善助成金・DX機器導入の相談</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="checkbox" name="ご相談内容[]" value="AI教育・労務" class="form-checkbox h-5 w-5 text-blue-600">
+                                <span class="text-gray-700">AI教育・労務管理システムについて</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold py-4 rounded-lg hover:from-blue-700 hover:to-blue-900 transition shadow-lg transform hover:-translate-y-1 flex items-center justify-center">
+                            <span id="btnText">無料で相談する</span>
+                        </button>
+                        <p class="text-sm text-gray-500 mt-2">※自動返信メールが届きます。</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4">ネクシオグループ</h3>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>静岡県三島市大宮町3-2-3 波多野ビル</p>
+                    <p class="mb-2"><i class="fas fa-phone mr-2"></i>055-976-0246</p>
+                    <p><i class="fas fa-envelope mr-2"></i>sugiyama.fumikazu@gmail.com</p>
+                </div>
+                <div class="flex flex-col md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                    </div>
+                    <p class="text-sm">経営革新等認定支援機関認定ID: 101722000212</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                &copy; 2026 Nexio Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form送信用スクリプト -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const successModal = document.getElementById('successModal');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // ボタンをローディング状態にする
+            btnText.innerHTML = '<span class="spinner"></span>送信中...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                // 送信完了時の処理
+                successModal.style.display = 'flex';
+                form.reset();
+            })
+            .catch(error => {
+                alert('送信に失敗しました。時間をおいて再度お試しください。');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // ボタンを元に戻す
+                btnText.innerText = '無料で相談する';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+            });
+        });
+    </script>
+
+</body>
+</html>
